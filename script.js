@@ -23,7 +23,34 @@ const thirdInput = document.getElementById("value-3");
 const fourthInput = document.getElementById("value-4");
 const fifthInput = document.getElementById("value-5");
 
+//? Funzioni ------------------
+const pushInArray = () => {
+    userNumbers.push(parseInt(firstInput.value))
+    userNumbers.push(parseInt(secondInput.value))
+    userNumbers.push(parseInt(thirdInput.value))
+    userNumbers.push(parseInt(fourthInput.value))
+    userNumbers.push(parseInt(fifthInput.value))
+}
 
+const compare = () => {
+    const comparate = []
+    for(let i = 0; i < numbers.length; i++) {
+        //prendi i numeri dell'array userNumbers e falli girare su numbers
+        //! Errore
+        if (userNumbers[0] === numbers[i]
+            || userNumbers[1] === numbers[i]
+            || userNumbers[2] === numbers[i]
+            || userNumbers[3] === numbers[i]
+            || userNumbers[4] === numbers[i]){
+            console.log(userNumbers[i]);
+            comparate.push(userNumbers[i]);
+            printRandomize.innerText = "Hai indovinato " + comparate;
+        } 
+    }
+    console.log(comparate);
+}
+
+//? ---------------------------
 // ✓ Visualizzare in pagina 5 numeri casuali.Da lì parte un timer di 30 secondi.
 const numbers = [];
 while (numbers.length < 5) {
@@ -37,7 +64,7 @@ console.log(numbers);
 
 let listItem = "<ul>";
 for (let i = 0 ; i < numbers.length; i++) {
-    listItem += `<li>${numbers[i]}</li>`
+    listItem += `<li>${numbers[i]}</li>`;
 }
 listItem += "</ul>";
 printRandomize.innerHTML = listItem;
@@ -51,7 +78,7 @@ const countDown = setInterval(() => {
     if (cd <= 0) {
         clearInterval(countDown);
         printRandomize.innerText = "";
-        printCountDown.classList.add("d-none")
+        printCountDown.classList.add("d-none");
         title.innerText = "Inserisci i numeri!";
         inputGroup.classList.remove("d-none");
     }
@@ -64,11 +91,9 @@ const userNumbers = [];
 buttonInput.addEventListener("click", function(e) {
     e.preventDefault();
 
-    userNumbers.push(firstInput.value)
-    userNumbers.push(secondInput.value)
-    userNumbers.push(thirdInput.value)
-    userNumbers.push(fourthInput.value)
-    userNumbers.push(fifthInput.value)
-    
+    pushInArray();
     console.log(userNumbers);
+
+    compare();
+
 })
