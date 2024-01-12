@@ -1,16 +1,3 @@
-/*
-### Descrizione:
-
-Tutte le validazioni sono da considerarsi bonus.
-#### Consigli del giorno:
-* Pensate prima in italiano.
-* Dividete in piccoli problemi la consegna.
-* Individuate gli elementi di cui avete bisogno per realizzare il programma.
-#### BONUS:
-* Come detto, le validazioni 
-* Volendo, potreste provare a farlo con degli input che compaiono in pagina dopo che scompaiono i numeri, invece che coi prompt
-*/
-
 const printCountDown = document.getElementById("count-down");
 const printRandomize = document.getElementById("random-numbers");
 const title = document.getElementById("title");
@@ -88,7 +75,7 @@ const countDown = setInterval(() => {
 }, 1000);
 
 
-// Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati. 
+// ✓ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati. 
 
 const userNumbers = [];
 buttonInput.addEventListener("click", function(e) {
@@ -99,4 +86,5 @@ buttonInput.addEventListener("click", function(e) {
 
     compare();
 
+    buttonInput.disabled = true;
 })
