@@ -23,7 +23,7 @@ const thirdInput = document.getElementById("value-3");
 const fourthInput = document.getElementById("value-4");
 const fifthInput = document.getElementById("value-5");
 
-//? Funzioni ------------------
+//! Funzioni ------------------
 const pushInArray = () => {
     userNumbers.push(parseInt(firstInput.value))
     userNumbers.push(parseInt(secondInput.value))
@@ -36,21 +36,24 @@ const compare = () => {
     const comparate = []
     for(let i = 0; i < numbers.length; i++) {
         //prendi i numeri dell'array userNumbers e falli girare su numbers
-        //! Errore
+        
         if (userNumbers[0] === numbers[i]
             || userNumbers[1] === numbers[i]
             || userNumbers[2] === numbers[i]
             || userNumbers[3] === numbers[i]
             || userNumbers[4] === numbers[i]){
-            console.log(userNumbers[i]);
-            comparate.push(userNumbers[i]);
-            printRandomize.innerText = "Hai indovinato " + comparate;
-        } 
+            console.log(numbers[i]);
+            comparate.push(numbers[i]);
+            title.innerText = "Hai indovinato " + comparate;
+        } else {
+            title.innerText = "Hai perso";
+
+        }
     }
     console.log(comparate);
 }
 
-//? ---------------------------
+//! ---------------------------
 // ✓ Visualizzare in pagina 5 numeri casuali.Da lì parte un timer di 30 secondi.
 const numbers = [];
 while (numbers.length < 5) {
