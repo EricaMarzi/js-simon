@@ -1,8 +1,5 @@
 /*
 ### Descrizione:
-Visualizzare in pagina 5 numeri casuali.Da lì parte un timer di 30 secondi.<br>
-Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt(). <br>
-Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati. <br>
 
 Tutte le validazioni sono da considerarsi bonus.
 #### Consigli del giorno:
@@ -16,13 +13,22 @@ Tutte le validazioni sono da considerarsi bonus.
 
 const printCountDown = document.getElementById("count-down");
 const printRandomize = document.getElementById("random-numbers");
-const inputGroup = document.getElementById("input-group")
+const title = document.getElementById("title");
+
+const inputGroup = document.getElementById("input-group");
+const buttonInput = document.getElementById("button");
+const firstInput = document.getElementById("value-1");
+const secondInput = document.getElementById("value-2");
+const thirdInput = document.getElementById("value-3");
+const fourthInput = document.getElementById("value-4");
+const fifthInput = document.getElementById("value-5");
 
 
+// ✓ Visualizzare in pagina 5 numeri casuali.Da lì parte un timer di 30 secondi.
 const numbers = [];
 while (numbers.length < 5) {
     const randomize = Math.floor(Math.random() * 100) +1;
-
+    
     if(!numbers.includes(randomize)) {
         numbers.push(randomize);
     }
@@ -38,12 +44,31 @@ printRandomize.innerHTML = listItem;
 
 
 
-let cd = 5;
+// ✓ Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt(). 
+let cd = 5; //! RICORDATI DI RIMETTERE 30
 const countDown = setInterval(() => {
-printCountDown.innerText = --cd
-if (cd <= 0) {
-    clearInterval(countDown);
-    printRandomize.innerText = "";
-    inputGroup.classList.remove("d-none")
-}
+    printCountDown.innerText = --cd
+    if (cd <= 0) {
+        clearInterval(countDown);
+        printRandomize.innerText = "";
+        printCountDown.classList.add("d-none")
+        title.innerText = "Inserisci i numeri!";
+        inputGroup.classList.remove("d-none");
+    }
 }, 1000);
+
+
+// Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati. 
+
+const userNumbers = [];
+buttonInput.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    userNumbers.push(firstInput.value)
+    userNumbers.push(secondInput.value)
+    userNumbers.push(thirdInput.value)
+    userNumbers.push(fourthInput.value)
+    userNumbers.push(fifthInput.value)
+    
+    console.log(userNumbers);
+})

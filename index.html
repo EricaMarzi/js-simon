@@ -17,16 +17,18 @@
 <body>
     
     <main class="vh-100 d-flex flex-column justify-content-center align-items-center gap-2">
+        <h2 id="title">Memorizza!</h2>
         <h1 id="count-down">30</h1>
         <div id="random-numbers">
         </div>
-        <div id="input-group" class="d-none"> 
-            <input type="number" min="1" max="100">
-            <input type="number" min="1" max="100">
-            <input type="number" min="1" max="100">
-            <input type="number" min="1" max="100">
-            <input type="number" min="1" max="100">
-        </div>
+        <form id="input-group" class="d-none"> 
+            <input type="number" min="1" max="100" id="value-1">
+            <input type="number" min="1" max="100" id="value-2">
+            <input type="number" min="1" max="100" id="value-3">
+            <input type="number" min="1" max="100" id="value-4">
+            <input type="number" min="1" max="100" id="value-5">
+            <button id="button">Compara</button>
+        </form>
     </main>
 </body>
 </html>
