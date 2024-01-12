@@ -17,14 +17,30 @@ Tutte le validazioni sono da considerarsi bonus.
 const printCountDown = document.getElementById("count-down");
 const printRandomize = document.getElementById("random-number");
 
+
 const numbers = [];
 while (numbers.length < 5) {
-    const randomNumber = Math.floor(Math.random() * 100) +1;
+    const randomize = Math.floor(Math.random() * 100) +1;
 
-    if(!numbers.includes(randomNumber)) {
-        numbers.push(randomNumber);
+    if(!numbers.includes(randomize)) {
+        numbers.push(randomize);
     }
 }
-
 console.log(numbers);
 
+let randomNumbers = "";
+for (let i = 0 ; i < numbers.length; i++) {
+    randomNumbers += numbers[i];
+}
+
+console.log(randomNumbers)
+printRandomize.innerHTML = randomNumbers
+
+
+let cd = 10;
+const countDown = setInterval(() => {
+printCountDown.innerText = --cd
+if (cd <= 0) {
+    clearInterval(countDown);
+}
+}, 1000);
