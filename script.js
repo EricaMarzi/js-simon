@@ -16,6 +16,7 @@ Tutte le validazioni sono da considerarsi bonus.
 
 const printCountDown = document.getElementById("count-down");
 const printRandomize = document.getElementById("random-numbers");
+const inputGroup = document.getElementById("input-group")
 
 
 const numbers = [];
@@ -37,11 +38,12 @@ printRandomize.innerHTML = listItem;
 
 
 
-let cd = 10;
+let cd = 5;
 const countDown = setInterval(() => {
 printCountDown.innerText = --cd
 if (cd <= 0) {
     clearInterval(countDown);
-    printRandomize.classList.add("d-none")
+    printRandomize.innerText = "";
+    inputGroup.classList.remove("d-none")
 }
 }, 1000);
