@@ -15,7 +15,7 @@ Tutte le validazioni sono da considerarsi bonus.
 */
 
 const printCountDown = document.getElementById("count-down");
-const printRandomize = document.getElementById("random-number");
+const printRandomize = document.getElementById("random-numbers");
 
 
 const numbers = [];
@@ -28,13 +28,13 @@ while (numbers.length < 5) {
 }
 console.log(numbers);
 
-let randomNumbers = "";
+let listItem = "<ul>";
 for (let i = 0 ; i < numbers.length; i++) {
-    randomNumbers += numbers[i];
+    listItem += `<li>${numbers[i]}</li>`
 }
+listItem += "</ul>";
+printRandomize.innerHTML = listItem;
 
-console.log(randomNumbers)
-printRandomize.innerHTML = randomNumbers
 
 
 let cd = 10;
@@ -42,5 +42,6 @@ const countDown = setInterval(() => {
 printCountDown.innerText = --cd
 if (cd <= 0) {
     clearInterval(countDown);
+    printRandomize.classList.add("d-none")
 }
 }, 1000);
