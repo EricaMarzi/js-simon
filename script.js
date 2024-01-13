@@ -31,8 +31,21 @@ const compare = () => {
             || userNumbers[4] === numbers[i]){
             console.log(numbers[i]);
             comparate.push(numbers[i]);
-            title.innerText = "Hai indovinato " + comparate;
-        } else {
+
+            let listUserNumber = "<ul>";
+            for (let i = 0 ; i < comparate.length; i++) {
+                listUserNumber += `<li>${comparate[i]}</li>`;
+            }
+            listUserNumber += "</ul>";
+
+            title.innerHTML = "Hai indovinato " + listUserNumber;
+
+            
+        } else if (userNumbers[0] !== numbers[i]
+            && userNumbers[1] !== numbers[i]
+            && userNumbers[2] !== numbers[i]
+            && userNumbers[3] !== numbers[i]
+            && userNumbers[4] !== numbers[i]){
             title.innerText = "Hai perso";
 
         }
