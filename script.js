@@ -71,6 +71,7 @@ const countDown = setInterval(() => {
         printCountDown.classList.add("d-none");
         title.innerText = "Inserisci i numeri!";
         inputGroup.classList.remove("d-none");
+        inputGroup.classList.add("d-flex");
     }
 }, 1000);
 
